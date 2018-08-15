@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!--不生成注释-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/homework"
+                        userId="root"
+                        password="123">
+        </jdbcConnection>
+
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--指定javabean生成的位置-->
+        <javaModelGenerator targetPackage="com.ecjtu.bean" targetProject="ssm1\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--指定sql映射文件的生成位置-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="ssm1\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--指定dao接口生成的位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.ecjtu.dao" targetProject="ssm1\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!--制定哪个表-->
+        <table tableName="user" domainObjectName="User"></table>
+    </context>
+</generatorConfiguration>
